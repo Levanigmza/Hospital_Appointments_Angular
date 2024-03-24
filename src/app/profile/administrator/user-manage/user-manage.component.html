@@ -1,0 +1,167 @@
+<div clas="UserManage">
+
+
+<div class="headline">
+    <h2>მომხმარებლის მონაცემების რედაქტირება</h2>
+    <button class="close-button" (click)="onCloseeditmode()">✕</button>
+</div>
+
+<div class="full_user_page">
+
+    <div class="user-details">
+  
+      <div class="user-photo">
+        <div class="avatar-upload">
+          <div class="avatar-edit">
+            <input type='file' id="imageUpload" (change)="onFileSelected($event)" accept=".png, .jpg, .jpeg" />
+            <label for="imageUpload"></label>
+          </div>
+          <div class="avatar-preview">
+            <div id="imagePreview" [style.backgroundImage]="'url(' + imageUrl + ')'" style="background-size: cover;">
+            </div>
+          </div>
+  
+        </div>
+  
+      </div>
+  
+      <div class="details_part1">
+        <p>მომხმარებელი</p>
+        <h3>{{ userdata?.name }} {{ userdata?.surname }}</h3>
+      </div>
+      <div class="details_part2">
+        <h3>პირადი ნომერი:</h3>
+        <p>{{userdata?.personalId}}</p>
+        <h3>Email:</h3>
+        <p>{{userdata?.email}}</p>
+        <div class="change_pass">
+          <button (click)="Pass_Change()">პაროლის შეცვლა</button>
+        </div>
+        <div class="appointmnets_count">
+          <span>ჩემი ჯავშნები </span>
+          <p>({{appointment_count}})</p>
+        </div>
+  
+        <div class="edit_data">
+          <button (click)="editData()">რედაქტირება</button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="user_appointments">
+      <div class="appointments">
+        <div class="loader" *ngIf="showLoader"></div>
+        <div class="currentYM">
+          {{ selectedYear }} {{ selectedMonthName }}
+        </div>
+        <div class="calendar" [ngClass]="{ 'blur': isBlurred }">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 150px;">
+                  <div class="controls">
+                    <img src="assets/left.png" alt="Previous Week" (click)="prevWeek()">
+                    <img src="assets/right.png" alt="Next Week" (click)="nextWeek()">
+                  </div>
+                </th>
+                <ng-container *ngFor="let date of dates">
+                  <th>{{ date.date }}
+                    <br>
+                    ({{ date.weekDay }})
+                  </th>
+                </ng-container>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let hour of hours">
+                <tr>
+                  <td>{{ hour }}</td>
+                  <td *ngFor="let date of dates">
+                    <div class="appointment-details">
+                      <ng-container *ngIf="getAppointmentsForDateTime(date.date, hour).length > 0">
+                        <div *ngFor="let appointment of getAppointmentsForDateTime(date.date, hour)">
+                          <table class="appointment-table" (mouseenter)="showPopup=true ; getUserInfo(appointment)"
+                            (mouseleave)="showPopup=false">
+                            <tr>
+                              <td [ngClass]="{
+                                                          'green_background': currentUserReservation(appointment) ,
+                                                      }">
+                                <div>
+                                  <ng-container *ngIf="currentUserReservation(appointment)">
+                                    <div class="deletebutton" *ngIf="correctionMode">
+                                      <div class="Btn_Icon" (click)="deleteAppointment(appointment)">
+                                        <img src="assets/delete2.png">
+                                      </div>
+                                    </div>
+                                    <span>ჩემი ჯავშანი</span>
+                                  </ng-container>
+                                </div>
+                                <div class="tooltip" *ngIf="showPopup">
+                                  <p *ngIf="!appointmentDoctor">Loading...</p>
+                                  <p *ngIf="appointmentDoctor">ექიმი : {{appointmentDoctor}}</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
+                      </ng-container>
+                    </div>
+                  </td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  
+  
+  
+      <div class="calendar_buttons">
+        <button class="correction_btn" (click)="CorrectData()">
+          <img src="assets/edit.png" alt="edit_btn">
+          <span>რედაქტირება</span>
+        </button>
+        <button class="delete_btn" *ngIf="correctionModeDelete" (click)="Delete_Record()">
+          <img src="assets/delete.png" alt="edit_btn">
+          <span>წაშლა</span>
+        </button>
+      </div>
+    </div>
+  
+    <div class="blur-background" *ngIf="editUserData ">
+      <app-user-details-edit [userDetails]="userdata" (closePopup)="editUserData = false"></app-user-details-edit>
+  
+    </div>
+  
+  
+  
+  
+  
+    <div class="blur-background" *ngIf="change_pass ">
+      <div class="change_password">
+        <div class="popup_header">
+          <h3>პაროლის ცვლილება</h3>
+          <button class="close-button" (click)="onClosePopup()">✕</button>
+        </div>
+  
+        <div class="input-fields" *ngIf="change_passInputs">
+          <input type="password" [(ngModel)]="newpassword" name="newpassword" placeholder="შეიყვანეთ ახალი პაროლი">
+          <input type="password" [(ngModel)]="newpassword_second" name="newpassword_second"
+            placeholder="გაიმეორეთ ახალი პაროლი" autocomplete="off">
+        </div>
+        <div class="Errormessage" *ngIf="Error">
+          <p>{{errorMessage}}</p>
+        </div>
+        <div class="successmessage" *ngIf="success">
+          <p>{{successMessage}}</p>
+        </div>
+        <div class="button-container" *ngIf="change_passInputs">
+          <button type="save" (click)="updatePassword()">შენახვა</button>
+        </div>
+      </div>
+    </div>
+  
+  
+  </div>
+
+</div>

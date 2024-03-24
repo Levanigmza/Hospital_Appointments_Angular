@@ -1,0 +1,66 @@
+<header>
+  <div class="logo-container" (click)="Mainpage()">
+    <img src="assets/logo.jpg" alt="Logo">
+    <span class="clinic-text">კლინიკა</span>
+  </div>
+  <nav>
+    <ul>
+      <li [class.underline]="isDoctorsActive" (click)="doctors()">ექიმები</li>
+      <li (click)="clinics()">კლინიკები</li>
+      <li (click)="Anotations()">ანოტაციები</li>
+      <li (click)="sales()">აქციები</li>
+      <li (click)="services()">სერვისები</li>
+      <li (click)="medicaments()">მედიკამენტები</li>
+      <li (click)="contact()">კონტაქტი</li>
+    </ul>
+  </nav>
+
+  <div class="auth-buttons" >
+  
+    <ng-container *ngIf="!isuserLoggedIn">
+      <button (click)="authorize()">ავტორიზაცია</button>
+      <span class="button-divider"> / </span>
+      <button (click)="register()">რეგისტრაცია</button>
+    </ng-container>
+
+    <ng-container *ngIf="isuserLoggedIn">
+      <div class="user-info-button" (click)="Loaduserpage()">
+        <img src="assets/people-icon.jpg" style="width: 35px;" alt="User Image">
+        <span>{{ userName }}</span>
+      </div>
+      <div class="logutbtn">
+        <button class="sign-out-button" (click)="signOut()">გასვლა</button>
+      </div>
+    </ng-container>
+  </div>
+</header>
+
+<div class="simple-bar">
+  <div class="bar-item">
+    <div class="image_bar">
+
+      <img src="assets/call-svgrepo-com (3) 1.png" style="width: 18px;" alt="User Image">
+    </div>
+    <span>032 2 100 100</span>
+  </div>
+  <div class="bar-item">
+    <div class="image_bar">
+      <img src="assets/location.png" style="width: 18px;" alt="User Image">
+
+    </div>
+    <!-- <img src="assets/desc.png" style="width: 180px;" alt="User Image"> -->
+    <span>იაკობ ნიკოლაძის N 10</span>
+  </div>
+
+  <div class="bar_input">
+    <input type="text" class="bar-item search-field" placeholder=" მოძებნე ექიმი სახელით" #doctorNameInput>
+    <input type="text" class="bar-item search-field" placeholder=" მოძებნე სპეციალობით" #doctorSpecialtyInput>
+    <div class="image_barsearch" (click)="searchDoctors(doctorNameInput.value|| doctorSpecialtyInput.value)">
+      <img src="assets/Vector1.png" style="width: 20px;" alt="User Image">
+    </div>
+  </div>
+  
+
+</div>
+
+

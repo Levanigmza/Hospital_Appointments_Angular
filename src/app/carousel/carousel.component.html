@@ -1,0 +1,57 @@
+<div class="slider">
+  <img src="assets/slider.png" alt="Slider">
+  <button class="address_btn">
+    <img src="assets/location.png" alt="Slider">
+    <img src="assets/adress.png" alt="Slider">
+  </button>
+</div>
+<div class="test">
+  <div class="components_wrapper">
+    <app-doctcategory (categorySelected)="filterDoctors($event)"></app-doctcategory>
+
+    <div class="content-wrapper">
+      <div class="doctors" *ngIf="!showDoctorInfo">
+        <div class="doct_cards">
+          <div class="grid-container">
+            <div class="grid-item" *ngFor="let doctor of doctors">
+              <div class="card_header">
+                <div class="top-left">
+                  <img src="assets/Vectoreye.png" alt="views">
+                  <span class="views-count">129 371</span>
+                </div>
+                <div class="top-right">
+                  <img src="assets/pin-svgrepo-com.png">
+                </div>
+              </div>
+              <div class="center">
+                <img [src]="getSafeImageUrl(doctor.photo)" alt="Doctor Image">
+              </div>
+              <div class="bottom">
+                <h2>{{ doctor.name }} {{ doctor.surname }}</h2>
+                <p>{{ doctor.position }}</p>
+                <div class="stars">
+                  <img src="assets/star.png">
+                  <img src="assets/star.png">
+                  <img src="assets/star.png">
+                  <img src="assets/star.png">
+                  <img src="assets/star.png">
+                </div>
+                <button (click)="showDoctor(doctor)">მიღებაზე ჩაწერა</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class = "no_doc" *ngIf="No_doctor">
+
+        <h2>სამწუხაროდ  ექიმები არ მოიძებნა</h2>
+    
+      </div>
+      <app-doctorinfo *ngIf="showDoctorInfo" [doctor]="selectedDoctor"></app-doctorinfo>
+      <app-appointment-calendar *ngIf="showDoctorInfo" [selectedDoctorId]="selectedDoctor?.id"></app-appointment-calendar>
+
+    </div>
+
+  </div>
+</div>

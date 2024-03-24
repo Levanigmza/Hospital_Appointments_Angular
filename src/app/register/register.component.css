@@ -1,0 +1,131 @@
+body{
+    margin:0;
+}
+
+.registration-container {
+    display: grid;
+    margin: 0 auto; 
+    width: 80%; 
+    height: 69.5vh; 
+}
+
+
+h2 {
+    font-size: 1.3vw; 
+    font-weight: bold;
+    margin-bottom: 0.1vw; 
+    margin-top: 15vh;
+    margin-bottom: 5vh; 
+    color: #18A4E1;
+}
+
+label {
+    color: #053354;
+    font-weight: none;
+    display: block;
+}
+
+.inputfields {
+    justify-content: center;
+    
+}
+
+.form-group {
+    gap: 1vw; 
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 0.5vw; 
+}
+
+.form-group input {
+    margin-top: 0.5vw; 
+    padding: 1vw; 
+    border: none;
+    box-shadow: #2d5b88;
+    width: 80%;
+    border-radius: 3vw;
+    background: rgba(235, 231, 231, 0.4);
+}
+
+.form-group button {
+    cursor: pointer;
+    border: none;
+    border-radius: 3vw;
+    margin-left: 1.5vh;
+}
+
+.form-group button img {
+    width: 1.5vw;
+    height: auto;
+    display: block;
+}
+
+.input-with-button {
+    display: flex;
+    align-items: center;
+}
+
+.form-group input:focus {
+    outline: none;
+    height: 0.5vw; 
+    width: 80%;
+     border-style: solid;
+    border-width: 0.1vw; 
+    border-color: #18A4E1;
+}
+.input-with-button{
+    height: 1vh;
+    margin-top: 3vh;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0.5vw;
+    gap: 3.5vw;
+}
+
+.form-row .form-group {
+    /* margin-right: 3.5vw; */
+    flex: 1;
+    margin-bottom: 1vw;
+}
+.button-container {
+    text-align: right;
+}
+
+button[type= "register"] {
+    padding: 0.5vw 1vw; 
+    font-size: 0.8vw; 
+    background-color: #053354;
+    color: #fff;
+    border-radius: 2vw;
+    cursor: pointer;
+}
+.error-message {
+    color: #FF0000; 
+    font-size: 1.5vh;
+    margin-top: 2.8vh;
+}
+
+.succes_reg{
+    display: flex;
+
+    flex-direction: row;
+    justify-content: center;
+}
+.content_Wrap_Reg{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:10vh;
+
+}
+.content_Wrap_Reg p{
+    font-size: 3vh;
+    font-weight: 600;
+    margin: 2vh;
+}

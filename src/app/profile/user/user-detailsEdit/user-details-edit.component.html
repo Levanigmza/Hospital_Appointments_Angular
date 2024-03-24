@@ -1,0 +1,75 @@
+<div class="user-details-edit-popup" *ngIf="EditMode">
+
+
+
+  <div class="headline">
+    <h2>პირადი მონაცემების რედაქტირება</h2>
+    <button class="close-button" (click)="onClosePopup()">✕</button>
+  </div>
+
+  <div class="inputfields" >
+
+
+    <div class="form-row" >
+      <div class="form-group">
+        <label for="firstName">სახელი:</label>
+        <div class="input-with-button">
+
+          <input type="text" [(ngModel)]="doctorDetails.name" name="firstName" placeholder="მინიმუმ 5 სიმბოლო"
+            (input)="hideNameAlert()" />
+          <div class="error-message" *ngIf="shownameAlert">
+            გთხოვთ შეიყვანოთ სახელი
+          </div>
+        </div>
+
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <div class="input-with-button">
+          <input type="text" id="email" [(ngModel)]="doctorDetails.email" name="email" (input)="hideemailAlert()" />
+          <button type="button" (click)="sendActivationCode()">
+            <img src="assets/mail.png" alt="Mail Icon">
+          </button>
+        </div>
+        <div class="error-message" *ngIf="showEmailRegisteredAlert">
+          ეს - ელ-ფოსტა უკვე რეგისტრირებულია
+        </div>
+        <div class="error-message" *ngIf="showEmailAlert">
+          გთხოვთ შეიყვანოთ ელ-ფოსტა
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="personalNumber">პირადი ნომერი:</label>
+        <input type="text" [(ngModel)]="doctorDetails.personalId" name="personalNumber" placeholder="00000000000"
+          (input)="hidepersonalNumberAlert()" />
+        <div class="error-message" *ngIf="showpersonalNumberAlert">
+          გთხოვთ შეიყვანოთ პირადი ნომერი (11 ციფრი)
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="lastName">გვარი:</label>
+        <input type="text" [(ngModel)]="doctorDetails.surname" name="surname" (input)="hideusernameAlert()" />
+        <div class="error-message" *ngIf="showsurnameAlert">
+          გთხოვთ შეიყვანოთ გვარი
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="activationCode">აქტივაციის კოდი:</label>
+        <input type="text" id="activationCode" [(ngModel)]="activationCode" name="activationCode" />
+      </div>
+      <div class="form-group">
+        <label class="activationCode">.</label>
+        <div class="button-container">
+          <button type="save" (click)="saveChanges()">შენახვა</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="success_update"  *ngIf="succesUpdate">
+  <h2>მონაცემების შენახვა წარმატებით მოხდა</h2>
+  <img src="assets/success.png">
+</div>

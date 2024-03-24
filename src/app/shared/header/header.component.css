@@ -1,0 +1,212 @@
+body {
+  background-color: #ECF2F8;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: 'FiraGO';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/firago@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/firago@latest/latin-400-normal.woff) format('woff');
+}
+
+
+header {
+  background-color: white;
+  color: #053354;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: FiraGo;
+}
+
+.logo-container {
+  margin-left: 100px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logo-container img {
+  width: 60px;
+  height: 66px;
+}
+
+.clinic-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: #FF2C52;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+font-weight: 600;
+  margin: 0 -200px 0 0;
+  padding: 0;
+
+}
+
+nav ul li {
+  margin: 0 20px;
+  display: inline-block;
+
+
+}
+
+nav li:hover {
+color: #1d92e6;
+}
+
+
+.auth-buttons {
+  padding: 10px;
+  height: 30px;
+  border-radius: 25px;
+  background-color: #F0FAFF;
+  align-items: center;
+  justify-content: center;
+  margin-right: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap:2vh;
+}
+
+.auth-buttons button {
+  background-color: #F0FAFF;
+  font-size: 17px;
+  color: #18A4E1;
+  border: none;
+  cursor: pointer;
+}
+.auth-buttons button:hover{
+  font-weight: 700;
+}
+
+.user-info-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5vh;
+}
+
+.logutbtn button{
+  background-color: #e29d9a80;
+  border-radius: 5px;
+  color: #053354;
+  font-family: 'FiraGo';
+  font-weight: 500;
+  border:1px solid #e29d9a80;
+  font-size: 16px;
+  margin:0.5vh;
+  padding:5px;
+}
+
+
+.simple-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #ECF2F8;
+  gap: 0vh;
+  height: 100px;
+}
+
+.bar-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2vh;
+}
+
+.bar-item img {
+  background-color: #ffff;
+  border-radius: 50%;
+}
+
+.bar-item span {
+  color: #053354;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'FiraGO';
+
+}
+
+.image_bar {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffff;
+
+}
+.image_barsearch{
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #053354;
+  cursor: pointer;
+}
+.search-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-button:hover {
+  background-color: #45a049;
+}
+
+.bar_input {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 8vh;
+}
+
+.bar_input input{
+  font-family: 'FiraGO';
+
+  background-color: #ffffffbe;
+  padding-inline-start: 20px;
+  width: 300px;
+  height: 40px;
+  border-radius: 50px;
+  border:none;
+}
+
+.underline {
+  position: relative;
+  display: inline-block;
+}
+
+.underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px; 
+  width: 100%;
+  border-bottom: 3px solid #053354; 
+}

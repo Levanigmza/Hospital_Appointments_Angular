@@ -1,0 +1,36 @@
+<div class="doctcategory">
+<div class="doct_categories">
+    <h2>კატეგორიები</h2>
+    <img src="assets/Vector 1.png" alt="Slider">
+
+    <ul>
+      <li (click)="showall()" [ngClass]="{ 'active-category': activeCategory === 'all' }"><span>({{this.alldoctors_count}})</span> ყველა</li>     
+      <li (click)="filter_doc('ანდროლოგი')" [ngClass]="{ 'active-category': activeCategory === 'ანდროლოგი' }"><span>({{ doctorCounts['ანდროლოგი'] || 0 }})</span> ანდროლოგი </li>
+      <li (click)="filter_doc('ანესთეზიოლოგი')" [ngClass]="{ 'active-category': activeCategory === 'ანესთეზიოლოგი' }"> <span>({{ doctorCounts['ანესთეზიოლოგი'] || 0 }}) </span> ანესთეზიოლოგი</li>
+      <li (click)="filter_doc('კარდიოლოგი')" [ngClass]="{ 'active-category': activeCategory === 'კარდიოლოგი' }"><span>({{ doctorCounts['კარდიოლოგი'] || 0 }})</span> კარდიოლოგი</li>
+      <li (click)="filter_doc('კოსმეტოლოგი')"[ngClass]="{ 'active-category': activeCategory === 'კოსმეტოლოგი' }"><span>({{ doctorCounts['კოსმეტოლოგი'] || 0 }})</span> კოსმეტოლოგი</li>
+      <li (click)="filter_doc('ლაბორანტი')"[ngClass]="{ 'active-category': activeCategory === 'ლაბორანტი' }"><span>({{ doctorCounts['ლაბორანტი'] || 0 }})</span> ლაბორანტი</li>
+      <li (click)="filter_doc('ოჯახის ექიმი')"[ngClass]="{ 'active-category': activeCategory === 'ოჯახის ექიმი' }"><span>({{ doctorCounts['ოჯახის ექიმი'] || 0 }})</span> ოჯახის ექიმი</li>
+      <li (click)="filter_doc( 'ბავშვთა და მოზრდილთა კარდიოლოგი')"[ngClass]="{ 'active-category': activeCategory === 'ბავშვთა და მოზრდილთა კარდიოლოგი' }"><span>({{ doctorCounts['ბავშვთა და მოზრდილთა კარდიოლოგი'] || 0 }})</span> ბავშვთა და მოზრდილთა კარდიოლოგი</li>
+      <li (click)="filter_doc('ტოქსიკოლოგი')"[ngClass]="{ 'active-category': activeCategory === 'ტოქსიკოლოგი' }"><span>({{ doctorCounts['ტოქსიკოლოგი'] || 0 }})</span> ტოქსიკოლოგი</li>
+      <li (click)="filter_doc('ტრანსფუზილოგი')"[ngClass]="{ 'active-category': activeCategory === 'ტრანსფუზილოგი' }"><span>({{ doctorCounts['ტრანსფუზილოგი'] || 0 }})</span> ტრანსფუზილოგი</li>
+      <li (click)="filter_doc('გინეკოლოგი')"[ngClass]="{ 'active-category': activeCategory === 'გინეკოლოგი' }"><span>({{ doctorCounts['გინეკოლოგი'] || 0 }})</span> გინეკოლოგი</li>
+      <li (click)="filter_doc('დერმატოლოგი')"[ngClass]="{ 'active-category': activeCategory === 'დერმატოლოგი' }"> <span>({{ doctorCounts['დერმატოლოგი'] || 0 }})</span> დერმატოლოგი</li>
+      <li (click)="filter_doc('ენდროკინოლოგი')"[ngClass]="{ 'active-category': activeCategory === 'ენდროკინოლოგი' }"><span>({{ doctorCounts['ენდროკინოლოგი'] || 0 }})</span> ენდროკინოლოგი</li>
+      <li (click)="filter_doc('გასტროენტეროლოგი')"[ngClass]="{ 'active-category': activeCategory === 'გასტროენტეროლოგი' }"><span>({{ doctorCounts['გასტროენტეროლოგი'] || 0 }})</span> გასტროენტეროლოგი</li>
+      <li (click)="filter_doc('თერაპევვტი')"[ngClass]="{ 'active-category': activeCategory === 'თერაპევვტი' }"><span>({{ doctorCounts['თერაპევვტი'] || 0 }})</span> თერაპევვტი</li>
+    </ul>
+    <button class="full_view">
+      <span>სრულად ნახვა</span>
+      <img src="assets/material-symbols_arrow-back-ios-rounded.png" alt="Slider">
+    </button>
+  </div>
+
+
+  <div class = "no_doc" *ngIf="No_doctor">
+
+    <h2>სამწუხაროდ  ექიმები არ მოიძებნა</h2>
+
+  </div>
+
+</div>

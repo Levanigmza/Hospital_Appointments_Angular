@@ -1,0 +1,58 @@
+<div class="registration-container">
+  <form class="reg_form" *ngIf="showRegistrationForm">
+    <h2>რეგისტრაცია</h2>
+    <div class="inputfields">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">სახელი:</label>
+          <input type="text" id="firstName" [(ngModel)]="firstName" name="firstName" placeholder="მინიმუმ 5 სიმბოლო" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <div class="input-with-button">
+            <input type="email" id="email" [(ngModel)]="email" name="email" />
+            <button type="button" (click)="sendActivationCode()">
+              <img src="assets/mail.png" alt="Mail Icon">
+            </button>
+          </div>
+          <div class="error-message" *ngIf="emailAlreadyRegisteredError">
+            ეს - Email უკვე რეგისტრირებულია
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="personalNumber">პირადი ნომერი:</label>
+          <input type="text" id="personalNumber" [(ngModel)]="personalNumber" name="personalNumber"
+            placeholder="00000000000" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="lastName">გვარი:</label>
+          <input type="text" id="lastName" [(ngModel)]="lastName" name="lastName" />
+        </div>
+        <div class="form-group">
+          <label for="activationCode">აქტივაციის კოდი:</label>
+          <input type="text" id="activationCode" [(ngModel)]="activationCode" name="activationCode" />
+        </div>
+        <div class="form-group">
+          <label for="password">პაროლი:</label>
+          <input type="password" id="password" [(ngModel)]="password" name="password"
+            placeholder="(მინიმუმ 8 სიმბოლო : @ 7,)" />
+        </div>
+      </div>
+    </div>
+    <div class="button-container">
+      <button type="register" (click)="register()">რეგისტრაცია</button>
+    </div>
+  </form>
+
+  <div class="succes_reg" *ngIf="show_succes_Reg">
+    <div class="content_Wrap_Reg">
+      <p class="notification-text">რეგისტრაცია წარმატებულია !</p>
+      <div class="button-container">
+        <button type="register" (click)="Navigate_tosignin()">ok</button>
+      </div>
+    </div>
+  </div>
+
+</div>

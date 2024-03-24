@@ -1,0 +1,289 @@
+body {
+    margin: 0;
+}
+
+.blur-background {
+    backdrop-filter: blur(0.2vw);
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-popup {
+
+    width: 30%;
+    max-width: 25vw;
+    min-width: max-content;
+    /* height: 40vh; */
+    min-height: max-content;
+    background-color: #ffff;
+    border-radius: 1.5vh;
+    box-shadow: 0 0 2vw rgba(0, 0, 0, 0.3);
+    /* padding: 3vw; */
+    z-index: 1;
+    /* position: absolute; */
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 35px;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 1vw;
+    color: #18a4e1;
+    cursor: pointer;
+    align-self: flex-end;
+    /* position: absolute;
+    right: 1vw;
+    top: 1vw; */
+}
+
+h2 {
+    font-family: FiraGo;
+
+    padding: 0.8vh;
+    text-align: center;
+    font-size: 22px;
+    color: #18A4E1;
+}
+
+.input-fields {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    width: 100%;
+    border-radius: 2vh;
+}
+
+input {
+    padding: 1vw;
+    border: 0.1vw solid #ccc;
+    border-radius: 0.5vw;
+    /* width: 70%; */
+    height: 2%;
+    height: 0.1vw;
+    z-index: 1;
+    border-radius: 2vh;
+}
+
+input:first-child {
+    margin-bottom: 1.5vw;
+
+}
+
+.password-recovery {
+    align-self: flex-end;
+    margin-top: 2vh;
+}
+
+.password-recovery p {
+    font-family: FiraGo;
+
+    color: #053354;
+    cursor: pointer;
+}
+
+.password-recovery p:hover {
+    font-weight: 600;
+}
+
+.login {
+    margin-top: 2vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.login button {
+    font-family: FiraGo;
+
+    padding: 0.6vw 3vw;
+    font-size: 0.8vw;
+    background-color: #053354;
+    color: #ffff;
+    border: none;
+    border-radius: 1.3vw;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #053f7c;
+}
+
+
+.incorrect_credentials p {
+    font-family: FiraGo;
+    margin: 5px;
+    color: red
+}
+
+
+.password-recovery-popup {
+    padding: 25px
+}
+
+.input-with-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    gap: 25px
+}
+
+.input-with-button input {
+    width: 250px
+}
+
+.input-with-button button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.input-with-button button img {
+    width: 45px;
+    height: auto;
+}
+
+.code-input {
+    width: 100%;
+}
+
+.code-input input {
+    width: 100%;
+}
+
+.code-input button {
+    width: 20%;
+    background: #FFFFFF;
+    color: #053f7c;
+    font-size: 18px;
+    border: none;
+    font-family: 'FiraGO';
+    cursor: pointer;
+}
+
+.code-input button:hover {
+    font-weight: 600;
+}
+
+.confirmCode {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: self-start;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+
+.confirmCode button img {
+    width: 45px;
+    height: auto;
+}
+
+#progressBar {
+    width: 100%;
+    margin: 10px auto;
+    height: 22px;
+    background-color: #053f7c;
+    border-radius: 10px;
+
+}
+
+.bar {
+    border-radius: 10px;
+    height: 100%;
+    background-color: #18A4E1;
+    transition: width 0.5s ease-in-out;
+}
+
+.Resend button {
+    width: 100%;
+}
+
+.Errormessage {
+    text-align: center;
+    color: red;
+    font-size: 14px;
+    font-family: FiraGO;
+}
+
+
+
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vh;
+}
+
+button[type="save"] {
+    padding: 10px 40px;
+    font-size: 16px;
+    background-color: #053354;
+    color: #fff;
+    border-radius: 25px;
+    cursor: pointer;
+    border: 2px solid #053354;
+    box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.1);
+    font-family: FiraGO;
+
+}
+
+button[type="save"]:hover {
+    color: #053354;
+    background-color: #FFFFFF;
+    border: 2px solid #053354;
+    font-weight: 600;
+    box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.1);
+
+}
+
+.redirect_Login{
+    margin-top: 2vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.redirect_Login button{
+    font-family: FiraGo;
+
+    padding: 10px 50px;
+    font-size: 0.8vw;
+    background-color: #053354;
+    color: #ffff;
+    border: none;
+    border-radius: 1.3vw;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.popup_header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: self-start;
+    top:0;
+}

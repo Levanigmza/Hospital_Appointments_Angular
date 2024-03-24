@@ -1,0 +1,596 @@
+.doctorpage {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    min-height: 720px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.doctor-details {
+    margin: 20px;
+    min-width: 366px;
+    min-height: 700px;
+    box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+
+}
+
+.doctos_appointments {
+    margin: 20px;
+    min-width: 800px;
+    min-height: 700px;
+    box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.1);
+    font-family: FiraGo;
+}
+
+.Doctor_photo img {
+    width: 155px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.details_part1,
+.details_part2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.details_part1 h3 {
+    margin-top: 5px;
+    color: #18A4E1;
+    font-size: 16px;
+    font-family: FiraGo;
+    line-height: 15px;
+
+}
+
+.details_part1 h2 {
+    font-size: 15px;
+    color: #0533548c;
+    line-height: 8px;
+    font-family: FiraGo;
+
+}
+.details_part1 p {
+    font-family: FiraGo;
+
+    font-size: 15px;
+    color: #053354a1;
+    line-height: 8px;
+}
+
+
+.details_part2 h3 {
+    margin-top: 5px;
+    color: #053354;
+    font-size: 16px;
+    font-family: FiraGo;
+    line-height: 15px;
+}
+
+.details_part2 p {
+    color: #05335471;
+    font-size: 15px;
+    font-family: FiraGo;
+    line-height: 15px;
+}
+.change_pass button{
+    cursor: pointer;
+
+}
+.change_pass button,
+.appointmnets_count {
+
+    margin-top: 15px;
+    color: #053354;
+    border: none;
+    background-color: #FFFFFF;
+    font-size: 16px;
+    font-family: FiraGo;
+    line-height: 15px;
+    font-weight: 400;
+}
+.appointmnets_count p{
+    text-align: center;
+    margin-top:10px;
+    font-size: 15px;
+    color: #053354;
+    font-weight: 600;
+}
+
+.edit_data{
+    margin-top: 15px;
+}
+.edit_data button{
+    color: #FFFFFF;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #053354;
+    font-size: 14px;
+    font-family: FiraGo;
+    margin-top: 22px;
+    border:1px solid #053354;
+    cursor: pointer;
+}
+.change_pass button:hover{
+    color: #053354;
+    font-weight: 600;
+    background-color: #FFFFFF; 
+}
+
+.edit_data button:hover{
+    color: #053354;
+    font-weight: 600;
+    background-color: #FFFFFF;
+    border:1px solid #053354
+}
+
+
+
+
+.doctor_appointments{
+    margin:20px;
+
+}
+
+.appointments{
+    position: relative;
+
+}
+.loader {
+    position:absolute;
+    top: 50%; 
+    left: 40%; 
+    width: 30px;
+    padding: 8px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #25b09b;
+    --_m: 
+      conic-gradient(#0000 10%,#000),
+      linear-gradient(#000 0 0) content-box;
+    -webkit-mask: var(--_m);
+            mask: var(--_m);
+    -webkit-mask-composite: source-out;
+            mask-composite: subtract;
+    animation: l3 4s infinite linear;
+    z-index: 999;
+  }
+  @keyframes l3 {
+    to{transform: rotate(2turn)}}
+  
+  .calendar.blur {
+    filter: blur(5px);
+  }
+
+.calendar {
+    text-align: center;
+    min-width: 950px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap:2vh;
+    
+}
+.calendar.blur {
+    filter: blur(5px);
+  }
+
+
+.currentYM {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: FIrago;
+    font-size: 18px;
+    color:#18A4E1;
+}
+
+.calendar table {
+    text-align: center;
+    
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.controls img {
+    width: 7px;
+    cursor: pointer;
+    margin: 0 2px;
+}
+
+
+table {
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+
+    border-collapse: collapse;
+    margin: 0 auto;
+
+}
+
+th,
+td {
+    font-family: Firago;
+
+    padding: 4px;
+
+}
+
+th {
+    background-color: #d1dbe4;
+
+}
+
+button {
+    margin: 5px;
+}
+
+thead tr {
+    border-radius: 10px;
+
+    background-color: #25d61f;
+    color: #053354;
+}
+
+tbody td {
+    background-color: #ffff;
+    color: #053354;
+    font-weight: 400;
+
+}
+
+th,
+td {
+    border: 2px solid #f0f0f0;
+    padding: 5px;
+    width: 100px;
+    height: 45px;
+    text-align: center;
+
+}
+
+td button {
+    color: #05335456;
+
+    border: none;
+    width: 80%;
+    height: 30%;
+    background: none;
+}
+tr button{
+    cursor: pointer;
+}
+
+
+.calendar_buttons {
+    margin-top:20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    gap:1.5vh;
+        border: none;
+
+}
+.correction_btn{
+    max-width: 230px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #ECF2F8;
+    color: #18A4E1;
+    padding: 8px 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    border: none;
+
+}
+
+.correction_btn span{
+    border: none;
+    background-color: #ECF2F8;
+    font-size: 16px;
+    font-family: Firago;
+}
+
+.delete_btn{
+    border: none;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #FF93A6;
+    color:#FFFFFF;
+    padding: 8px 10px;
+    border-radius: 50px;
+    cursor: pointer;
+
+}
+
+.delete_btn img,
+.correction_btn img{
+    width: 20px;
+}
+.delete_btn span{
+    background-color: #FF93A6;
+    font-size: 16px;
+    font-family: Firago;
+    color:#FFFFFF;
+    border: none;
+}
+
+
+
+.deletebutton{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+}
+.Btn_Icon{
+    cursor: pointer;
+    width: 20px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+
+}
+
+
+
+td .green_background {
+    background-color: #DAFAEE; 
+    border: none;
+    font-family: FiraGo;
+    font-style: SemiBold;
+    color: #3ACF99;
+    position: relative;
+
+}
+
+
+.tooltip {
+    visibility: hidden;
+    width: 120px;
+    background-color: #f9f9f9;
+    color: #000;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #ccc transparent transparent transparent;
+}
+
+.green_background:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+  
+
+
+
+.blur-background {
+    backdrop-filter: blur(0.25vw);
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+app-user-details-edit{
+    min-width:1500px;
+}
+
+
+
+
+.avatar-upload {
+    position:relative;
+    max-width: 205px;
+    margin: 50px auto;
+}
+
+.avatar-edit {
+    position: absolute;
+    right: 12px;
+    z-index: 1;
+    top: 10px;
+}
+
+.avatar-edit input {
+    display: none;
+}
+
+.avatar-edit label {
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    border-radius: 100%;
+    border:4px solid #0f84b9;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    background: #09425a;
+    background-size: 60%; 
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
+.avatar-edit label:hover {
+    background: #09425a;
+    border-color: #09b32e;
+}
+  
+  .avatar-edit label:after {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+  }
+
+.avatar-preview {
+    width: 152px;
+    height: 152px;
+    position: relative;
+    border-radius: 100%;
+    border: 6px solid #F8F8F8;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-preview > div {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+.input-fields {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 2vh;
+}
+
+input {
+    padding: 1vw;
+    border: 0.1vw solid #ccc;
+    border-radius: 0.5vw;
+    font-family: FIrago;
+    height: 2%;
+    height: 0.1vw;
+    z-index: 1;
+    border-radius: 2vh;
+    margin-top: 1.3vw;
+
+}
+
+input:focus {
+    border: 1px solid #18A4E1
+}
+
+.change_password {
+    background-color: #FFFFFF;
+    padding: 25px;
+    min-width: 400px;
+    min-height: 250px;
+    border: 1px solid #18A4E1;
+    border-radius: 15px;
+}
+
+.popup_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.popup_header button {
+    border: none;
+    background-color: #FFFFFF;
+    font-size: 20px;
+    margin-right: 10px;
+    color: #18A4E1;
+    cursor: pointer;
+    font-family: FIrago;
+
+
+}
+
+.popup_header button:hover {
+    font-weight: 900;
+
+}
+
+.popup_header h3 {
+    margin: 20px;
+
+    font-family: FIrago;
+    font-size: 18px;
+    color: #18A4E1;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3vh;
+}
+
+.button-container button {
+    border: none;
+    background-color: #053354;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-family: FIrago;
+
+    padding: 10px  30px;
+    border-radius: 20px;
+    cursor: pointer;
+    border:2px solid #053354
+}
+
+.button-container button:hover{
+    border:2px solid #3a98db;
+    color: #c4c0c0;
+
+
+}
+
+.Errormessage p,
+.successmessage p{
+    text-align: center;
+    margin:20px;
+    font-size: 16px;
+    font-family: FIrago;
+}
+.Errormessage p{
+    color:red
+}
+.successmessage p{
+    color:#053354
+}
+
+
+
+

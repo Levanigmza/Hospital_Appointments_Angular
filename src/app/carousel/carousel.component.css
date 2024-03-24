@@ -1,0 +1,180 @@
+@font-face {
+  font-family: 'FiraGO';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/firago@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/firago@latest/latin-400-normal.woff) format('woff');
+}
+
+
+.slider {
+  position: relative;
+  display: inline-block;
+}
+
+.slider img {
+  width: 100%;
+}
+
+.address_btn {
+  display: flex;
+  flex-direction: row;
+  gap: 1vh;
+  position: absolute;
+  top: 65%;
+  left: 16%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  background-color: #ffff;
+  animation: showDelayed 3s forwards;
+  opacity: 0;
+
+}
+@keyframes showDelayed {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+
+
+.grid-item_alert {
+  width: 200px;
+  height: 200px;
+  background-color: #18A4E1;
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1vh;
+  border: 1.5px solid #18a5e157;
+  box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.1);
+
+  background-color: #fff;
+
+  padding: 20px;
+  border-radius: 10px;
+  width: 290px;
+  height: 350px;
+  font-family: 'Firago'
+}
+
+.card_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.views-count {
+  top: 10px;
+  left: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.top-right {
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+
+.top-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-left span {
+  color: #053354;
+  font-size: 14px;
+}
+
+.center {
+  text-align: center;
+}
+
+.center img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+.bottom {
+  margin-top: 20px;
+  align-items: center;
+  text-align: center;
+}
+
+
+
+.bottom h2 {
+  color: #053354;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.bottom p {
+  color: #05335454;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+button {
+  background-color: #ECF2F8;
+  color: #053354;
+  border: 1px solid #ECF2F8;
+  border-radius: 25px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: 'FiraGO';
+
+}
+
+button:hover {
+  background-color: #ffffff;
+  border: 1px solid #18A4E1
+}
+
+.test {
+  width: 100%;
+  min-height: 800px;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.components_wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.content-wrapper {
+  margin: 9vh;
+}
+
+.no_doc {
+  margin: 372px;
+
+}
+
+.no_doc h2 {
+  color: #053354;
+  font-family: Firago;
+
+}

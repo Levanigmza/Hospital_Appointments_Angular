@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'FiraGO';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: url(https://cdn.jsdelivr.net/fontsource/fonts/firago@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/firago@latest/latin-400-normal.woff) format('woff');
+}
+
+
+.Doctor_info_appointment {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4vh;
+    font-family: Firago;
+    max-width: 1000px;
+    min-height: 250px;
+    border-radius: 5px;
+    border: 0.5px solid  #CCCCCC;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.Doctor_photo img{
+    width: 140px;
+    height: 150px;
+
+    border-radius: 50%;
+}
+
+.Doctor_fullname {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1vh
+}
+
+.Doctor_fullname h2 {
+    min-width: 250px;
+    color: #053354;
+    font-weight: 600;
+}
+
+
+.stars {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1vh
+}
+
+.stars img {
+    width: 20px;
+}
+
+.Doctor_cv p {
+    max-width: 417px;
+}

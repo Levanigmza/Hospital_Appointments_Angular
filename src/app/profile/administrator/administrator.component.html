@@ -1,0 +1,221 @@
+<div class="adminpage" >
+    <div class="top-navigation">
+        <button class="tab-button" [class.tabhover]="isDoctorsActive" (click)="showDoctors()">ექიმები</button>
+        <button class="tab-button" [class.tabhover]="isUsersActice" (click)="showUsers()">მომხარებლები</button>
+        <button class="tab-button" [class.tabhover]="isRegistrationActive"
+            (click)="showRegistration()">რეგისტრაცია</button>
+    </div>
+
+
+    <div class="admin_component" >
+        <div class="registration-container" *ngIf="showRegistrationForm">
+            <form class="reg_form">
+                <h2> ექიმის რეგისტრაცია</h2>
+                <div class="inputfields">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">სახელი:</label>
+                            <input type="text" [(ngModel)]="doctorDetails.name" name="firstName"
+                                placeholder="მინიმუმ 5 სიმბოლო" (input)="hideNameAlert()" />
+                            <div class="error-message" *ngIf="shownameAlert">
+                                გთხოვთ შეიყვანოთ ექიმის სახელი
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="text" id="email" [(ngModel)]="doctorDetails.email" name="email"
+                                (input)="hideemailAlert()" />
+                            <div class="error-message" *ngIf="showEmailRegisteredAlert">
+                                ეს - Email უკვე რეგისტრირებულია
+                            </div>
+                            <div class="error-message" *ngIf="showEmailAlert">
+                                გთხოვთ შეიყვანოთ ექიმის ელ-ფოსტა
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="personalNumber">პირადი ნომერი:</label>
+                            <input type="text" [(ngModel)]="doctorDetails.personalNumber" name="personalNumber"
+                                placeholder="00000000000" (input)="hidepersonalNumberAlert()" />
+                            <div class="error-message" *ngIf="showpersonalNumberAlert">
+                                გთხოვთ შეიყვანოთ პირადი ნომერი (8 ციფრი)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="lastName">გვარი:</label>
+                            <input type="text" [(ngModel)]="doctorDetails.surname" name="surname"
+                                (input)="hideusernameAlert()" />
+                            <div class="error-message" *ngIf="showsurnameAlert">
+                                გთხოვთ შეიყვანოთ ექიმის გვარი
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="position">კატეგორია</label>
+                            <select [(ngModel)]="doctorDetails.position" name="position" class="form-control"
+                                (input)="hidepositionAlert()">
+                                <option value="">აირჩიეთ კატეგორია</option>
+                                <option value="ანდროლოგი">ანდროლოგი</option>
+                                <option value="ანესთეზიოლოგი">ანესთეზიოლოგი</option>
+                                <option value="კარდიოლოგი">კარდიოლოგი</option>
+                                <option value="კოსმეტოლოგი">კოსმეტოლოგი</option>
+                                <option value="ლაბორანტი">ლაბორანტი</option>
+                                <option value="ოჯახის ექიმი">ოჯახის ექიმი</option>
+                                <option value="ტოქსიკოლოგი">ტოქსიკოლოგი</option>
+                                <option value="ტრანსფუზილოგი">ტრანსფუზილოგი</option>
+                                <option value="გინეკოლოგი">გინეკოლოგი</option>
+                                <option value="დერმატოლოგი">დერმატოლოგი</option>
+                                <option value="ენდროკინოლოგი">ენდროკინოლოგი</option>
+                                <option value="გასტროენტეროლოგი">გასტროენტეროლოგი</option>
+                                <option value="თერაპევვტი">თერაპევვტი</option>
+
+                            </select>
+                            <div class="error-message" *ngIf="showpositionAlert">
+                                გთხოვთ აირჩოთ კატეგორია(პოზიცია)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">პაროლი:</label>
+                            <input type="password" [(ngModel)]="doctorDetails.password" name="password"
+                                placeholder="(მინიმუმ 8 სიმბოლო : @ 7,)" />
+                            <div class="error-message" *ngIf="showpasswordAlert">
+                                გთხოვთ შეიყვანოთ ექიმის პაროლი
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="file">ფოტოსურათი</label>
+                            <input type="file" (change)="handleFileInput($event)" accept="image/*" name="photo"
+                                (input)="hidephotoAlert()">
+                            <div class="error-message" *ngIf="showPhotoAlert">
+                                გთხოვთ ატვირთოთ ფოტოსურათი
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button type="register" (click)="registerDoctor()">რეგისტრაცია</button>
+                </div>
+            </form>
+
+            <div class="succes_reg" *ngIf="show_succes_Reg">
+                <div class="content_Wrap_Reg">
+                    <p class="notification-text">რეგისტრაცია წარმატებულია !</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="doctors-container" *ngIf="showdoctors">
+            <div class="doctors_body">
+                <h2>კატეგორიები</h2>
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>სახელი</th>
+                            <th>კატეგორია</th>
+                            <th>ფოტოსურათი</th>
+                            <th>რეიტინგი</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="!doctorsAreEmpty">
+                        <tr *ngFor="let doctor of doctors">
+                            <td>{{ doctor.name }} {{ doctor.surname }}</td>
+                            <td>{{ doctor.position }}</td>
+                            <td>
+                                <div class="Doctor_photo">
+                                    <img [src]="getSafeImageUrl(doctor.photo)" alt="Doctor Image">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="stars">
+                                    <img src="assets/star.png" alt="Star">
+                                    <img src="assets/star.png" alt="Star">
+                                    <img src="assets/star.png" alt="Star">
+                                    <img src="assets/star.png" alt="Star">
+                                    <img src="assets/star.png" alt="Star">
+                                </div>
+                            </td>
+                            <td>
+                                <button class="edit-button" (click)="editDoctorDetails(doctor)">
+                                    <img src="assets/pen.png">
+                                </button>
+                                <button class="delete-button" (click)="deleteuser(doctor)">
+                                    <img src="assets/bin.png">
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="doctor_Empty" *ngIf="doctorsAreEmpty">
+
+                    <h2>ექიმები არ მოძებნა</h2>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div class="Users-container" *ngIf="showusers">
+
+            <div class="users-body">
+                <h2>მომხმარებლები</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>სახელი</th>
+                            <th>ელ-ფოსტა</th>
+                            <th>პირადი ნომერი</th>
+                            <th>ფოტოსურათი</th>
+                            <th></th>
+
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="!usersAreEmpty">
+                        <tr *ngFor="let Userr of usersall">
+                            <td>{{ Userr.name }} {{ Userr.surname }}</td>
+                            <td>{{ Userr.email }}</td>
+                            <td>{{Userr.personalId}}</td>
+                            <td>
+                                <div class="user_photo">
+                                    <img [src]="getSafeImageUrl(Userr.photo)" alt="user Image">
+                                </div>
+                            </td>
+                            <td>
+                                <button class="edit-button" (click)="edituser(Userr)">
+                                    <img src="assets/pen.png">
+                                </button>
+                                <button class="delete-button" (click)="deleteuser(Userr)">
+                                    <img src="assets/bin.png">
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="user-empty" *ngIf="usersAreEmpty">
+                    <h2>მომხმარებლები არ მოძებნა</h2>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="blur-background" *ngIf="editDoctordetails">
+            <app-doctor-manage [userDetails]="doctor" (closePopup)="editDoctordetails = false"></app-doctor-manage>
+        </div>
+        <div class="blur-background" *ngIf="editUserDetails">
+            <app-user-manage [userData]="Userr" (closePopup)="editUserDetails = false"></app-user-manage>
+        </div>
+    </div>
+
+
+</div>

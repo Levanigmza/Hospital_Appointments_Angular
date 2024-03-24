@@ -1,0 +1,86 @@
+<div class="appointments">
+
+    <div class="loader" *ngIf="showLoader"></div>
+
+    <div class="currentYM">
+        {{ selectedYear }} {{ selectedMonthName }}
+    </div>
+
+    <div class="calendar" [ngClass]="{ 'blur': isBlurred }">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 200px;">
+                        <div class="controls">
+                            <img src="assets/left.png" alt="Previous Week" (click)="prevWeek()">
+                            <img src="assets/right.png" alt="Next Week" (click)="nextWeek()">
+                        </div>
+                    </th>
+                    <ng-container *ngFor="let date of dates">
+                        <th>{{ date.date }}
+                            <br>
+                            ({{ date.weekDay }})</th>
+                    </ng-container>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let hour of hours">
+                    <tr>
+                        <td>{{ hour }}</td>
+                        <td *ngFor="let date of dates">
+                            <div class="appointment-details">
+                                <ng-container *ngIf="getAppointmentsForDateTime(date.date, hour).length > 0">
+                                    <div *ngFor="let appointment of getAppointmentsForDateTime(date.date, hour)">
+                                        <table class="appointment-table">
+                                            <tr>
+                                                <td [ngClass]="{
+                                                    'pink_background': isReserved(appointment),
+                                                    'green_background': currentUserReservation(appointment),
+                                                    'button_cell': isAvailable(appointment, date.date, hour)
+                                                }">
+                                                    <div>
+                                                        <ng-container *ngIf="currentUserReservation(appointment)">
+                                                            <div class="deletebutton" *ngIf="correctionMode">
+                                                                <div class="Btn_Icon" (click)="deleteAppointment(appointment.appointmentId)">
+                                                                    <img src="assets/delete2.png">
+                                                                </div>
+                                                            </div>
+                                                                <span>ჩემი ჯავშანი</span>
+                                                        </ng-container>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </ng-container>
+                                <ng-container *ngIf="getAppointmentsForDateTime(date.date, hour).length === 0">
+                                    <button *ngIf="isAvailable(undefined, date.date, hour)"
+                                        (click)="handleAppointmentClick(date.date, hour)">
+                                        <img src="assets/appointment.png">
+                                    </button>
+
+                                </ng-container>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+
+        <div class="calendar_buttons">
+            <button class="correction_btn" (click)="CorrectData()">
+                <img src="assets/edit.png" alt="edit_btn">
+                <span>რედაქტირება</span>
+            </button>
+            <button class="delete_btn" *ngIf="correctionModeDelete" (click)="Delete_Record()">
+                <img src="assets/delete.png" alt="edit_btn">
+
+                <span>წაშლა</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+

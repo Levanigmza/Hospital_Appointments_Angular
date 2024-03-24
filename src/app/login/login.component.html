@@ -1,0 +1,83 @@
+<app-carousel></app-carousel>
+
+<div class="blur-background">
+    <div class="login-popup">
+        <div class="content-wrapper" *ngIf="ShowLoginPopup">
+            <button class="close-button" (click)="onClosePopup()">✕</button>
+            <h2>ავტორიზაცია</h2>
+            <div class="input-fields">
+                <input type="email" [(ngModel)]="email" name="email" placeholder="ელ ფოსტა">
+                <input type="password" [(ngModel)]="password" name="password" placeholder="პაროლი">
+            </div>
+            <div class="incorrect_credentials" *ngIf="Incorrect">
+                <p>მომხარებლის ელ-ფოსტა ან პაროლი არასწორია</p>
+            </div>
+            <div class="incorrect_credentials" *ngIf="System_Error">
+                <p>სისტემური შეცდომა, გთხოვთ სცადოთ მოგვიანებით</p>
+            </div>
+
+            <div class="password-recovery">
+                <p (click)="PasswordRecover()">პაროლის აღდგენა</p>
+            </div>
+            <div class="login">
+                <button class="login-button" (click)="submitUserAuth()">შესვლა</button>
+            </div>
+        </div>
+
+
+
+        <div class="password-recovery-popup" *ngIf="PasswordRecoveryPopup">
+
+            <button class="close-button" (click)="onClosePopup()">✕</button>
+            <h2>პაროლის აღდგენა</h2>
+            <div class="input-with-button" *ngIf="emailverifed">
+                <input type="email" id="email" [(ngModel)]="email" name="email" placeholder="შეიყვანეთ ელ-ფოსტა" />
+                <button type="recover" (click)="sendActivationCode()">
+                    <img src="assets/send.png" alt="Mail Icon">
+                </button>
+
+            </div>
+            <div class="Errormessage" *ngIf="Error">
+                <p>{{errorMessage}}</p>
+            </div>
+            <div class="code-input" *ngIf="codeSent">
+                <div class="confirmCode">
+                    <input type="text" id="code" [(ngModel)]="code" name="code"
+                        placeholder="შეიყვანეთ დადასტურების კოდი" />
+                    <button (click)="confirmCode()">
+                        <img src="assets/confirm.png">
+                    </button>
+                </div>
+                <div id="progressBar" *ngIf="progress < 100">
+                    <div class="bar" [style.width.%]="progress"></div>
+                </div>
+
+
+                <div class="Resend">
+                    <button *ngIf="progress >= 100" (click)="sendAgain()">თავიდან გაგზავნა</button>
+
+                </div>
+
+            </div>
+
+
+            <div class="change_password" *ngIf="change_pass">
+                <div class="input-fields">
+                    <input type="password" [(ngModel)]="newpassword" name="newpassword"
+                        placeholder="შეიყვანეთ ახალი პაროლი">
+                    <input type="password" [(ngModel)]="newpassword_second" name="newpassword_second"
+                        placeholder="გაიმეორეთ ახალი პაროლი">
+
+                    <div class="button-container">
+                        <button type="save" (click)="updatePassword()">შენახვა</button>
+                    </div>
+                </div>
+            </div>
+            <div class="redirect_Login" *ngIf="redirect_To_Login">
+                <button class="login-button" (click)="redirect_toLogin()">ავტორიზაცია</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>

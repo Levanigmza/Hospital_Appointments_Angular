@@ -1,0 +1,68 @@
+@font-face {
+  font-family: 'FiraGO';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/firago@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/firago@latest/latin-400-normal.woff) format('woff');
+}
+
+  
+  
+  footer {
+    background-color: #053354;
+    height: 300px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    font-family: FiraGo;
+  }
+  
+  .grid-sections {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-section {
+    margin-bottom: 80px;
+    display: flex;
+    align-items: center;
+    margin-left: 120px;
+  }
+  
+  .logo-section img {
+    width: 80px;
+    height: 66px;
+  }
+  
+  .clinic-textWhite {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    margin-left: -20px;
+  }
+  
+  .sections {
+    display: flex;
+    margin-left: 350px; 
+  }
+  
+  .section-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 30px;
+    margin-left: 30px;
+  }
+  
+  .contact-details {
+    width: 150px;
+    font-size: 14px;
+  }
+  .for-doctors,
+  .for-patients,
+  .contact-info,
+  .follow-us-section {
+    text-align: start;
+    margin-right: 150px;
+  }
+  
