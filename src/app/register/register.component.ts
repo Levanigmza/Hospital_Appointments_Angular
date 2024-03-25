@@ -67,7 +67,7 @@ export class RegisterComponent {
         (error) => {
           console.error(error);
 
-          if (error instanceof HttpErrorResponse && error.status === 400) {
+          if (error instanceof HttpErrorResponse && error.status === 402) {
             this.emailAlreadyRegisteredError = true;
           }
         }
